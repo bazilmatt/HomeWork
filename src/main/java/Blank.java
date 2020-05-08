@@ -15,14 +15,8 @@ public class Blank {
 
 
     public void addPet(Pet pet) {
-        if (cardMap.size()==0){
-            pet.setId(cardMap.size());
-            cardMap.put(pet.getId(), pet);
-        } else {
-            pet.setId(cardMap.size());
-            cardMap.put(pet.getId(), pet);
-        }
-
+        pet.setId(cardMap.size());
+        cardMap.put(pet.getId(), pet);
     }
 
     public Pet getPet(Integer id){
