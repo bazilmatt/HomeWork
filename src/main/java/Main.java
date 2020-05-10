@@ -25,8 +25,13 @@ public class Main {
                 }
 
                 blank.editOwner(2,person2);
-
                 System.out.println(blank.getPet(2));
+
+                try{ //Todo - вынести поиск животного в отдельный метод
+                        blank.searchName("NET TAKOGO IMENI");
+                } catch (NoSuchElementException e){
+                        System.out.println("Нет животного с такой кличной");
+                }
         }
 
 

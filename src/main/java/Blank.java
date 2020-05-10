@@ -13,10 +13,12 @@ public class Blank {
 
     public HashMap<Integer,Pet> cardMap = new HashMap<Integer, Pet>();
 
+    public HashMap<String, Integer> forSearch = new HashMap<>();
 
     public void addPet(Pet pet) {
         pet.setId(cardMap.size());
         cardMap.put(pet.getId(), pet);
+        forSearch.put(pet.getPetName(),pet.getId());
     }
 
     public Pet getPet(Integer id){
@@ -54,18 +56,14 @@ public class Blank {
     }
 
     public Integer searchName(String name) throws NoSuchElementException{
-        String curName="";
-        for (Integer key : cardMap.keySet()) {
-            curName =cardMap.get(key).getPetName();
-            if (curName.equals(name)){
-               return (cardMap.get(key).getId());
-            } else {
-                continue;
-            }
+        Integer id = 0;
+        if (forSearch.containsKey(name)) {
+            id = forSearch.get(name);
+        } else{
+            throw new NoSuchElementException();
         }
-        throw new NoSuchElementException();
+        return id;
     }
-
-
-
 }
+
+
